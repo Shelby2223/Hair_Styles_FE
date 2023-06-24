@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const Header = () => {
     const [userName, setUserName] = useState('');
+    const [isModalOpen, setModalOpen] = useState(false);
+
 
 
     useEffect(() => {
@@ -21,76 +23,96 @@ const Header = () => {
     }, []);
 
     return (
-        <div>
-            <div className="top-bar d-none d-md-block">
-                <div className="container-fluid">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="top-bar-left">
-                                <div className="text">
-                                    <h2>8:00 AM - 9:00 PM</h2>
-                                    <p>Opening Mon - Sun</p>
-                                </div>
-                                <div className="text">
-                                    <h2>(+84) 978 736 207</h2>
-                                    <p>Call Us For help</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="top-bar-right">
-                                <div className="social">
-                                    <a href=""><i className="fab fa-twitter"></i></a>
-                                    <a href=""><i className="fab fa-facebook-f"></i></a>
-                                    <a href=""><i className="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i className="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
+        <>
+            <div id="preloader-active">
+                <div className="preloader d-flex align-items-center justify-content-center">
+                    <div className="preloader-inner position-relative">
+                        <div className="preloader-circle" />
+                        <div className="preloader-img pere-text">
+                            <img src="assets/img/logo/loder.png" alt="" />
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="navbar navbar-expand-lg bg-dark navbar-dark">
-                <div className="container-fluid">
-                    <a href="index.html" className="navbar-brand">Barber shops <span>5M</span></a>
-                    <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
+            <header>
+                {/*? Header Start */}
+                <div className="header-area header-transparent pt-20">
+                    <div className="main-header header-sticky">
+                        <div className="container-fluid">
+                            <div className="row align-items-center">
+                                {/* Logo */}
+                                <div className="col-xl-2 col-lg-2 col-md-1">
+                                    <div className="logo">
+                                        <a href="index.html">
+                                            <img src="assets/img/logo/logo.png" alt="" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div className="col-xl-10 col-lg-10 col-md-10">
+                                    <div className="menu-main d-flex align-items-center justify-content-end">
+                                        {/* Main-menu */}
+                                        <div className="main-menu f-right d-none d-lg-block">
+                                            <nav>
+                                                <ul id="navigation">
+                                                    <li className="active">
+                                                        <a href="index.html">Home</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="blog.html">Blog</a>
+                                                        <ul className="submenu">
+                                                            <li>
+                                                                <a href="blog.html">Blog</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="blog_details.html">Blog Details</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="elements.html">Element</a>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <a href="contact.html">Contact</a>
+                                                    </li>
+                                                    {userName ? (
+                                                        <>
+                                                            <li>
+                                                                <a href="profile.html"><i className="fas fa-user" ></i>Welcome: {userName}</a>
+                                                            </li>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <li>
+                                                                <a href="/Login">Đăng nhập</a>
+                                                            </li>
 
-                    <div className="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div className="navbar-nav ml-auto">
-                            <input type="text" placeholder="Search" className="nav-item nav-link" />
-                            <a href='showsop.html' className="nav-item nav-link"><i className="fas fa-search"></i></a>
-
-                            <a href="/" className="nav-item nav-link active">Home</a>
-                            <a href="service.html" className="nav-item nav-link">Service</a>
-                            <a href="price.html" className="nav-item nav-link">Price</a>
-                            <a href="team.html" className="nav-item nav-link">Barber</a>
-                            <a href="portfolio.html" className="nav-item nav-link">Gallery</a>
-                            <div className="nav-item dropdown">
-                                <a href="#" className="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                <div className="dropdown-menu">
-                                    <a href="blog.html" className="dropdown-item">Blog Page</a>
-                                    <a href="single.html" className="dropdown-item">Single Page</a>
+                                                            <li>
+                                                                <a href="/Register">Đăng Ký</a>
+                                                            </li>
+                                                        </>
+                                                    )}
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                        <div className="header-right-btn f-right d-none d-lg-block ml-30">
+                                            <a href="from.html" className="btn header-btn">
+                                                became a member
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Mobile Menu */}
+                                <div className="col-12">
+                                    <div className="mobile_menu d-block d-lg-none" />
                                 </div>
                             </div>
-                            {userName ? (
-                                <>
-                                    <a className="nav-item nav-link" href="profile.html"><i className="fas fa-user" ></i>Xin chào: {userName}</a>
-                                </>
-                            ) : (
-                                <>
-                                    <a href="#" className="nav-item nav-link">Đăng nhập</a>
-                                    <a href="#" className="nav-item nav-link">Đăng Ký</a>
-                                </>
-                            )}
-                            <a href="contact.html" className="nav-item nav-link">Contact</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+                {/* Header End */}
+            </header>
+        </>
     );
 }
 

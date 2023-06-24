@@ -10,23 +10,47 @@ import ShopAdminPage from './Components/ShopAdminPage';
 import ContactPage from './Components/ContactPage';
 import HistoryPage from './Components/HistoryPage';
 import Footer from './Components/Footer';
+import Search from './Components/Search';
 
 function App() {
   return (
     <Router>
+      <Routes>
+        <Route path="/login" element={<LoginPageWithoutHeaderFooter />} />
+        <Route path="/register" element={<RegisterPageWithoutHeaderFooter />} />
+        <Route path="/" element={<DefaultLayout />} />
+      </Routes>
+    </Router>
+  );
+}
+
+function DefaultLayout() {
+  return (
+    <>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/shop/:id" element={<ShopDetailPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/user/profile" element={<ProfilePage />} />
-        <Route path="/shop/admin" element={<ShopAdminPage />} />
+        <Route path="/ShopDetail" element={<ShopDetailPage />} />
+        <Route path="/Search" element={<Search />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/ShopAdmin" element={<ShopAdminPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/booking/history" element={<HistoryPage />} />
+        <Route path="/History" element={<HistoryPage />} />
       </Routes>
       <Footer />
-    </Router>
+    </>
+  );
+}
+
+function LoginPageWithoutHeaderFooter() {
+  return (
+    <LoginPage />
+  );
+}
+
+function RegisterPageWithoutHeaderFooter() {
+  return (
+    <RegisterPage />
   );
 }
 
