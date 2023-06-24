@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import ShowProducts from './ShowProducts';
 
 const HomePage = () => {
-    
+
     return (
         <>
             <div className="slider-area position-relative fix">
@@ -42,8 +43,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-
-
+            <ShowProducts></ShowProducts>
 
 
 
