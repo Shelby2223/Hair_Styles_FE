@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 
+
 const RegisterPage = () => {
     const [isPasswordVisible, setPasswordVisible] = useState(false);
     const [isModelVisible, setModelVisible] = useState(false);
