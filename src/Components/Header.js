@@ -7,6 +7,7 @@ const Header = () => {
     useEffect(() => {
         const userID = localStorage.getItem('userID');
         console.log(userID, 'id');
+        // localStorage.removeItem(userID);
 
         if (userID) {
             axios.get('http://127.0.0.1:8000/api/users')
