@@ -67,7 +67,7 @@ const RegisterPage = () => {
             console.log(response.data);
             if (response.data.success == true) {
                 // OTP xác minh thành công, hiển thị thông báo đăng ký thành công và chuyển hướng sang trang đăng nhập
-                alert('Đăng ký thành công!');
+                alert('Sign Up Successful \nPlease log in');
                 // Chuyển hướng sang trang đăng nhập
                 window.location.href = '/login';
             } else {

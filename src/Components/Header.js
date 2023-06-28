@@ -3,24 +3,31 @@ import axios from 'axios';
 
 const Header = () => {
     const [userName, setUserName] = useState('');
-    const [isModalOpen, setModalOpen] = useState(false);
-
-
 
     useEffect(() => {
-        const userId = localStorage.getItem('userId');
-        if (userId) {
-            axios
-                .get(`https://6471cfab6a9370d5a41ab469.mockapi.io/users/${userId}`)
+        const userID = localStorage.getItem('userID');
+        console.log(userID, 'id');
+
+        if (userID) {
+            axios.get('http://127.0.0.1:8000/api/users')
                 .then((response) => {
-                    const user = response.data;
-                    setUserName(user.name);
+                    const users = response.data;
+                    const user = users.find((user) => user.user_id === parseInt(userID));
+
+                    if (user) {
+                        setUserName(user.user_name);
+                    } else {
+                        console.log('Không tìm thấy người dùng');
+                    }
                 })
                 .catch((error) => {
-                    console.log('Lỗi khi lấy thông tin người dùng:', error);
+                    console.log('Lỗi khi lấy danh sách người dùng:', error);
                 });
         }
     }, []);
+
+
+    console.log(userName, 'name');
 
     return (
         <>
@@ -77,8 +84,14 @@ const Header = () => {
                                                     </li>
                                                     {userName ? (
                                                         <>
+                                                            <div className="header-right-btn f-right d-none d-lg-block ml-30">
+                                                                <a href="from.html" className="btn header-btn">
+                                                                    welcome: {userName}
+                                                                </a>
+                                                            </div>
                                                             <li>
-                                                                <a href="profile.html"><i className="fas fa-user" ></i>Welcome: {userName}</a>
+                                                                <ion-icon name="calendar-clear-outline"></ion-icon>
+                                                                <a href="contact.html">Calendar</a>
                                                             </li>
                                                         </>
                                                     ) : (
@@ -92,13 +105,9 @@ const Header = () => {
                                                             </li>
                                                         </>
                                                     )}
+
                                                 </ul>
                                             </nav>
-                                        </div>
-                                        <div className="header-right-btn f-right d-none d-lg-block ml-30">
-                                            <a href="from.html" className="btn header-btn">
-                                                became a member
-                                            </a>
                                         </div>
                                     </div>
                                 </div>

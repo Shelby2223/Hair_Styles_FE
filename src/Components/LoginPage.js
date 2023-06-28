@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function LoginPage() {
     const [isPasswordVisible, setPasswordVisible] = useState(false); // Trạng thái kiểm tra xem password đang hiển thị hay ẩn
@@ -15,8 +16,8 @@ function LoginPage() {
     };
 
     const [user, setUser] = useState({
-        user_email: '',
-        user_password: '',
+        input_email: '',
+        input_password: '',
     });
 
     const handleChange = (e) => {
@@ -24,16 +25,36 @@ function LoginPage() {
     };
 
     const handlelogin = async (e) => {
+        e.preventDefault();
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/register', user);
+            const response = await axios.post('http://127.0.0.1:8000/api/login', user);
             console.log(response.data);
-            console.log(response.data.message, 'message')
-            // Display success message or redirect to another page
+
+            if (response.data.message === true) {
+                // Lấy thông tin người dùng từ API
+                const getUserResponse = await axios.get('http://127.0.0.1:8000/api/users');
+                const users = getUserResponse.data;
+
+                // Tìm người dùng dựa trên user_email nhập vào
+                const foundUser = users.find((u) => u.user_email === user.input_email); //u.user_email là từ api, user.user_email là từ input
+
+                if (foundUser) {
+                    const userID = foundUser.user_id;
+                    localStorage.setItem('userID', userID);
+                    console.log('userID đã lưu:', userID);
+                } else {
+                    console.log('Không tìm thấy người dùng');
+                }
+
+                alert('Login Successful \nWelcome to BarberShop! ');
+                window.location.href = '/';
+            } else {
+                alert('Đăng nhập thất bại');
+            }
         } catch (error) {
-            console.error(error, 'lỗi đầu');
-            // Display error message
+            console.error(error);
         }
-    }
+    };
 
 
 
@@ -54,12 +75,11 @@ function LoginPage() {
                                         <ion-icon name="mail" />
                                     </span>
                                     <input
-                                        name="user_name"
+                                        name="input_email"
                                         type="email"
                                         required
                                         className="login-input"
                                         onChange={handleChange}
-
                                     />
                                     <label>Email</label>
                                 </div>
@@ -68,7 +88,7 @@ function LoginPage() {
                                         <ion-icon name={getPasswordIcon()} />
                                     </span>
                                     <input
-                                        name="user_password"
+                                        name="input_password"
                                         type={isPasswordVisible ? 'text' : 'password'}
                                         required
                                         className="login-input"

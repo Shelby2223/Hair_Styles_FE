@@ -457,7 +457,8 @@ hr {
 }
 
 .header-btn {
-    padding: 29px 33px
+    height: 50px;
+    margin-top: 23px;
 }
 
 .hero-btn {
@@ -2672,7 +2673,7 @@ hr {
     -webkit-transition: .3s;
     -moz-transition: .3s;
     -o-transition: .3s;
-    transition: .3s
+    transition: .3s;
 }
 
 .header-area .main-header .main-menu ul ul.submenu>li {
