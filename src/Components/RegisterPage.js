@@ -45,14 +45,6 @@ const RegisterPage = () => {
         return isPasswordVisible ? 'lock-open' : 'lock-closed';
     };
 
-    const hanldeBack = () => {
-        setRegisterVisible(false);
-        setTimeout(() => {
-            setModelVisible(false);
-        }, 300);
-    };
-
-
     // otp_code: ''
 
     const [user, setUser] = useState({
@@ -62,6 +54,8 @@ const RegisterPage = () => {
         user_email: '',
         user_password: '',
     });
+
+
 
 
     const handleChange = (e) => {
@@ -90,6 +84,21 @@ const RegisterPage = () => {
                 // Display error message
             }
         }
+    };
+
+    // back khi muốn thay đổi email
+    const hanldeBack = () => {
+        setRegisterVisible(false);
+        setTimeout(() => {
+            setModelVisible(false);
+        }, 300);
+        setUser({
+            user_name: user.user_name,
+            user_phone: user.user_phone,
+            user_address: user.user_address,
+            user_email: user.user_email,
+            user_password: user.user_password,
+        });
     };
 
 
