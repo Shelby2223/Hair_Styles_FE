@@ -79,19 +79,26 @@ const Header = () => {
                                                             </li>
                                                         </ul>
                                                     </li>
-                                                    <li>
-                                                        <a href="contact.html">Contact</a>
-                                                    </li>
+
                                                     {userName ? (
                                                         <>
                                                             <div className="header-right-btn f-right d-none d-lg-block ml-30">
-                                                                <a href="from.html" className="btn header-btn">
-                                                                    welcome: {userName}
-                                                                </a>
+                                                                <a href="from.html" className="btn header-btn">welcome: {userName}</a>
+                                                                <ul className="submenu">
+                                                                    <li>
+                                                                        <a href="#">Profile</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">Log out</a>
+                                                                    </li>
+                                                                </ul>
                                                             </div>
+
                                                             <li>
-                                                                <ion-icon name="calendar-clear-outline"></ion-icon>
-                                                                <a href="contact.html">Calendar</a>
+                                                                <a href="contact.html">Past Haircut Bookings</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="contact.html">Log Out</a>
                                                             </li>
                                                         </>
                                                     ) : (

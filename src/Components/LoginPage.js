@@ -23,13 +23,12 @@ function LoginPage() {
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
-
+    console.log('user', user);
     const handlelogin = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/login', user);
             console.log(response.data);
-
             if (response.data.message === true) {
                 // Lấy thông tin người dùng từ API
                 const getUserResponse = await axios.get('http://127.0.0.1:8000/api/users');
@@ -55,9 +54,6 @@ function LoginPage() {
             console.error(error);
         }
     };
-
-
-
 
     return (
         <>

@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const RegisterPage = () => {
@@ -15,14 +15,6 @@ const RegisterPage = () => {
         return isPasswordVisible ? 'lock-open' : 'lock-closed';
     };
 
-    const hanldeBack = () => {
-        setRegisterVisible(false);
-        setTimeout(() => {
-            setModelVisible(false);
-        }, 300);
-    };
-
-
     // otp_code: ''
 
     const [user, setUser] = useState({
@@ -32,6 +24,8 @@ const RegisterPage = () => {
         user_email: '',
         user_password: '',
     });
+
+
 
 
     const handleChange = (e) => {
@@ -53,6 +47,21 @@ const RegisterPage = () => {
             console.error(error, 'lỗi đầu');
             // Display error message
         }
+    };
+
+    // back khi muốn thay đổi email
+    const hanldeBack = () => {
+        setRegisterVisible(false);
+        setTimeout(() => {
+            setModelVisible(false);
+        }, 300);
+        setUser({
+            user_name: user.user_name,
+            user_phone: user.user_phone,
+            user_address: user.user_address,
+            user_email: user.user_email,
+            user_password: user.user_password,
+        });
     };
 
 
