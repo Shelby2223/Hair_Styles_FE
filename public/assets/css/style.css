@@ -417,6 +417,11 @@ hr {
     overflow: hidden;
     margin: 0
 }
+/* .btn_user{
+    border-radius: 20px;
+    background-color:#d19f68 ;
+} */
+
 
 .btn::before {
     content: "";
@@ -456,13 +461,12 @@ hr {
     padding: 19px 97px 19px 20px
 }
 
-
-
-.header-btn {
-    height: 50px;
-    margin-top: 23px;
-    width: auto;
+.btn_header:hover+.submenu_user {
+    visibility: visible;
+    opacity: 1;
+    top: 100%;
 }
+
 
 
 .hero-btn {
@@ -6989,4 +6993,9 @@ del {
 
 .switch-wrap {
     margin-bottom: 10px
+}
+
+/* Logout */
+.logout_user{ 
+    cursor: pointer;
 }
