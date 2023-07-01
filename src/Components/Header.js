@@ -37,13 +37,10 @@ const Header = () => {
         }
     };
 
-
-
     console.log(userName, 'name');
-
     console.log(isSubMenuOpen, 'open');
 
-
+    
     return (
         <>
             <div id="preloader-active">
