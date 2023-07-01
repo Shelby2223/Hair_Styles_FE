@@ -11,6 +11,7 @@ import ContactPage from './Components/ContactPage';
 import HistoryPage from './Components/HistoryPage';
 import Footer from './Components/Footer';
 import Search from './Components/Search';
+import ForgotPassword from './Components/ForgotPassword';
 
 function App() {
   return (

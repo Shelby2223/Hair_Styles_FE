@@ -47,7 +47,7 @@ function LoginPage() {
 
                 alert('Login Successful \nWelcome to BarberShop! ');
                 window.location.href = '/';
-            } else {
+            } else if (response.data.message === false) {
                 alert('Đăng nhập thất bại');
             }
         } catch (error) {
