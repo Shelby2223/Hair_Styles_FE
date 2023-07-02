@@ -11,7 +11,11 @@ import ContactPage from './Components/ContactPage';
 import HistoryPage from './Components/HistoryPage';
 import Footer from './Components/Footer';
 import Search from './Components/Search';
-import ForgotPassword from './Components/ForgotPassword';
+// import ForgotPassword from './Components/ForgotPassword';
+import AdminHeader from './Admin/Components/header';
+import Sidenav from './Admin/Components/sidenav';
+import BarberShop from './Admin/Components/BarberShop';
+import Income from './Admin/Components/Income';
 
 function App() {
   return (
@@ -20,6 +24,8 @@ function App() {
         <Route path="/login" element={<LoginPageWithoutHeaderFooter />} />
         <Route path="/register" element={<RegisterPageWithoutHeaderFooter />} />
         <Route path="/" element={<DefaultLayout />} />
+        <Route path="/Admin" element={<DefaultAdminLayout/>} />
+
       </Routes>
     </Router>
   );
@@ -30,6 +36,7 @@ function DefaultLayout() {
     <>
       <Header />
       <Routes>
+
         <Route path="/" element={<HomePage />} />
         <Route path="/ShopDetail" element={<ShopDetailPage />} />
         <Route path="/Search" element={<Search />} />
@@ -52,7 +59,24 @@ function LoginPageWithoutHeaderFooter() {
 function RegisterPageWithoutHeaderFooter() {
   return (
     <RegisterPage />
-  );
+
+
+);
+}
+function DefaultAdminLayout(){
+  return(
+  <>
+
+  <AdminHeader/>
+  <Sidenav/>
+    <Routes>
+    <Route path="/Admin/BarberShop" element={<BarberShop />} />
+     <Route path="/Income" element={<Income />} />
+
+    </Routes>
+
+</>
+)
 }
 
 export default App;
