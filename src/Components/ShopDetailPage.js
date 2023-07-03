@@ -29,7 +29,7 @@ const ShopDetailPage = () => {
       <div className='row'>
         <div className='col-md-4'>
           <div className='image'>
-             <img src={product.shop_image} alt={product.shop_name} className="card-img-top" />
+            <img src={product.shop_image} alt={product.shop_name} className="card-img-top" />
           </div>
         </div>
         <div className='col-md-8'>

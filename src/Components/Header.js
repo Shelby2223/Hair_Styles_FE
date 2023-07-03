@@ -3,10 +3,12 @@ import axios from 'axios';
 
 const Header = () => {
     const [userName, setUserName] = useState('');
+    const [isSubMenuOpen, setSubMenuOpen] = useState(false);
 
     useEffect(() => {
         const userID = localStorage.getItem('userID');
         console.log(userID, 'id');
+        // localStorage.removeItem(userID);
 
         if (userID) {
             axios.get('http://127.0.0.1:8000/api/users')
@@ -26,9 +28,20 @@ const Header = () => {
         }
     }, []);
 
+    // Log out 
+    const handleLogout = () => {
+        const confirmLogout = window.confirm('Are you sure you want to log out?');
+        if (confirmLogout) {
+            localStorage.removeItem('userID');
+            // Thực hiện các xử lý khác sau khi logout (nếu cần)
+            window.location.reload();
+        }
+    };
 
     console.log(userName, 'name');
+    console.log(isSubMenuOpen, 'open');
 
+    
     return (
         <>
             <div id="preloader-active">
@@ -65,7 +78,7 @@ const Header = () => {
                                                     <li className="active">
                                                         <a href="index.html">Home</a>
                                                     </li>
-                                                    <li>
+                                                    {/* <li>
                                                         <a href="blog.html">Blog</a>
                                                         <ul className="submenu">
                                                             <li>
@@ -78,21 +91,26 @@ const Header = () => {
                                                                 <a href="elements.html">Element</a>
                                                             </li>
                                                         </ul>
-                                                    </li>
-                                                    <li>
-                                                        <a href="contact.html">Contact</a>
-                                                    </li>
+                                                    </li> */}
+
                                                     {userName ? (
+
                                                         <>
-                                                            <div className="header-right-btn f-right d-none d-lg-block ml-30">
-                                                                <a href="from.html" className="btn header-btn">
-                                                                    welcome: {userName}
-                                                                </a>
-                                                            </div>
                                                             <li>
-                                                                <ion-icon name="calendar-clear-outline"></ion-icon>
-                                                                <a href="contact.html">Calendar</a>
+                                                                <a href="contact.html">Past Haircut Bookings</a>
                                                             </li>
+                                                            <li>
+                                                                <a className='btn_user' href="#"> welcome: {userName}</a>
+                                                                <ul className='submenu'>
+                                                                    <li>
+                                                                        <a href="#">Profile</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a className='logout_user' onClick={handleLogout}>Log out</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+
                                                         </>
                                                     ) : (
                                                         <>
@@ -120,7 +138,7 @@ const Header = () => {
                     </div>
                 </div>
                 {/* Header End */}
-            </header>
+            </header >
         </>
     );
 }

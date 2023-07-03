@@ -417,6 +417,11 @@ hr {
     overflow: hidden;
     margin: 0
 }
+/* .btn_user{
+    border-radius: 20px;
+    background-color:#d19f68 ;
+} */
+
 
 .btn::before {
     content: "";
@@ -456,10 +461,13 @@ hr {
     padding: 19px 97px 19px 20px
 }
 
-.header-btn {
-    height: 50px;
-    margin-top: 23px;
+.btn_header:hover+.submenu_user {
+    visibility: visible;
+    opacity: 1;
+    top: 100%;
 }
+
+
 
 .hero-btn {
     padding: 32px 41px
@@ -2579,6 +2587,8 @@ hr {
     font-family: "Open Sans", sans-serif;
     position: relative
 }
+
+
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
     .header-area .main-header .main-menu ul li a {
@@ -6983,4 +6993,9 @@ del {
 
 .switch-wrap {
     margin-bottom: 10px
+}
+
+/* Logout */
+.logout_user{ 
+    cursor: pointer;
 }

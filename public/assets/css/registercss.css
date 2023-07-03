@@ -233,6 +233,7 @@
     font-size: 1em;
     color: #fff;
     font-weight: 500;
+    margin-top: 20px;
 }
 
 .register-image-box {
@@ -245,4 +246,10 @@
 
 .register-image-box img {
     max-width: 100%;
+}
+
+.error-message{
+    color: #7f0000;
+    font-weight: 500;
+
 }

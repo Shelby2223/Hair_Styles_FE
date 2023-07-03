@@ -1,11 +1,41 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ValidationRules from './ValidationRules';
+
 
 const RegisterPage = () => {
     const [isPasswordVisible, setPasswordVisible] = useState(false);
     const [isModelVisible, setModelVisible] = useState(false);
     const [isRegisterVisible, setRegisterVisible] = useState(false);
     const [otpCode, setOtpCode] = useState(''); // Khởi tạo giá trị ban đầu của OTP là rỗng
+    const [formErrors, setFormErrors] = useState({});// form errors
+
+    const validateForm = () => {
+        return new Promise((resolve) => {
+            const errors = {};
+
+            Object.keys(ValidationRules).forEach((fieldName) => {
+                const fieldValue = user[fieldName];
+                const fieldRules = ValidationRules[fieldName];
+
+                fieldRules.forEach((rule) => {
+                    if (rule.required && !fieldValue) {
+                        errors[fieldName] = rule.message;
+                    }
+
+                    if (rule.pattern && !rule.pattern.test(fieldValue)) {
+                        errors[fieldName] = rule.message;
+                    }
+                });
+            });
+
+            setFormErrors(errors);
+
+            resolve(Object.keys(errors).length === 0);
+        });
+    };
+
+
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!isPasswordVisible);
@@ -14,14 +44,6 @@ const RegisterPage = () => {
     const getPasswordIcon = () => {
         return isPasswordVisible ? 'lock-open' : 'lock-closed';
     };
-
-    const hanldeBack = () => {
-        setRegisterVisible(false);
-        setTimeout(() => {
-            setModelVisible(false);
-        }, 300);
-    };
-
 
     // otp_code: ''
 
@@ -34,26 +56,51 @@ const RegisterPage = () => {
     });
 
 
+
+
     const handleChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
 
     const handleRegister = async (e) => {
-        setRegisterVisible(true);
-        setTimeout(() => {
-            setModelVisible(true);
-        }, 300);
         e.preventDefault();
-        try {
-            const response = await axios.post('http://127.0.0.1:8000/api/register', user);
-            console.log(response.data);
-            console.log(response.data.message, 'message')
-            // Display success message or redirect to another page
-        } catch (error) {
-            console.error(error, 'lỗi đầu');
-            // Display error message
+
+        // Kiểm tra và xác thực các trường dữ liệu
+        const isValid = await validateForm();
+
+        if (isValid) {
+            setRegisterVisible(true);
+            setTimeout(() => {
+                setModelVisible(true);
+            }, 300);
+
+            try {
+                const response = await axios.post('http://127.0.0.1:8000/api/register', user);
+                console.log(response.data);
+                console.log(response.data.message, 'message');
+                // Display success message or redirect to another page
+            } catch (error) {
+                console.error(error, 'lỗi đầu');
+                // Display error message
+            }
         }
     };
+
+    // back khi muốn thay đổi email
+    const hanldeBack = () => {
+        setRegisterVisible(false);
+        setTimeout(() => {
+            setModelVisible(false);
+        }, 300);
+        setUser({
+            user_name: user.user_name,
+            user_phone: user.user_phone,
+            user_address: user.user_address,
+            user_email: user.user_email,
+            user_password: user.user_password,
+        });
+    };
+
 
 
     const handleVerifyOtp = async (e) => {
@@ -123,6 +170,7 @@ const RegisterPage = () => {
 
                                             />
                                             <label>Phone</label>
+                                            {formErrors.user_phone && <span className="error-message">{formErrors.user_phone}</span>}
                                         </div>
                                         <div className="register-input-box">
                                             <span className="register-icon">
@@ -143,14 +191,14 @@ const RegisterPage = () => {
                                                 <ion-icon name="mail" />
                                             </span>
                                             <input
-                                                type="email"
+                                                type="text"
                                                 required
                                                 name="user_email"
                                                 className="register-input"
                                                 onChange={handleChange}
-
                                             />
                                             <label>Email</label>
+                                            {formErrors.user_email && <span className="error-message">{formErrors.user_email}</span>}
                                         </div>
                                         <div className="register-input-box">
                                             <span className="register-icon" onClick={togglePasswordVisibility}>
@@ -162,9 +210,10 @@ const RegisterPage = () => {
                                                 name="user_password"
                                                 className="register-input"
                                                 onChange={handleChange}
-
                                             />
                                             <label>Password</label>
+                                            {formErrors.user_password && <span className="error-message">{formErrors.user_password}</span>}
+
                                         </div>
                                         <button type="submit" className="register-btnv" onClick={handleRegister}>
                                             Verify your email
@@ -204,7 +253,6 @@ const RegisterPage = () => {
                                     </form>
                                 </>
                             )}
-
                         </div>
 
                         <div className="register-image-box">
