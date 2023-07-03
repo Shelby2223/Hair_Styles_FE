@@ -41,14 +41,14 @@ function LoginPage() {
                     const userID = foundUser.user_id;
                     localStorage.setItem('userID', userID);
                     console.log('userID đã lưu:', userID);
+                    alert('Login Successful \nWelcome to BarberShop! ');
+                    window.location.href = '/';
                 } else {
                     console.log('Không tìm thấy người dùng');
                 }
-
-                alert('Login Successful \nWelcome to BarberShop! ');
-                window.location.href = '/';
-            } else if (response.data.message === false) {
+            } else{
                 alert('Đăng nhập thất bại');
+                console.log(response.data.abc);
             }
         } catch (error) {
             console.error(error);
@@ -94,7 +94,7 @@ function LoginPage() {
                                     <label>Password</label>
                                 </div>
                                 <div className="login-remember-forgot">
-                                    <a href="#">Forgot password</a>
+                                    <a href="/ForgotPassword">Forgot password</a>
                                 </div>
                                 <button type="submit" className="login-btn">Login</button>
                                 <div className="login-login-register">
