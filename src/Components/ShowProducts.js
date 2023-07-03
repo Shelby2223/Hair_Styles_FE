@@ -9,7 +9,7 @@ const ShowProducts = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://63aa9df8fdc006ba604715fd.mockapi.io/show');
+            const response = await axios.get('http://127.0.0.1:8000/api/shops');
             setData(response.data);
             setSearchResults(response.data);
         } catch (error) {
@@ -20,6 +20,8 @@ const ShowProducts = () => {
     useEffect(() => {
         fetchData();
     }, []);
+
+
     return (
         <>
             <div className='showproduct'>
@@ -27,7 +29,7 @@ const ShowProducts = () => {
                 <h3 className="colection">DANH SÁCH SẢN PHẨM PHỤC VỤ</h3>
                 <br /><br />
                 <div className="row">
-                    {searchResults.map((e) => (
+                    {data.map((e) => (
                         <div className="col-md-3" key={e.id}>
                             <div className="card">
                                 <img src={e.shop_image} alt={e.shop_name} className="card-img-top" />
@@ -36,8 +38,9 @@ const ShowProducts = () => {
                                     <p className="card-text">{e.shop_rating}</p>
                                     <p className="card_price"> {e.user}</p>
                                     <div className="function">
-                                        <Link className='button' to={`/shop/${e.id}`} >Chi tiết Shop</Link>
+                                        <Link className='button' to={`/ShopDetailPage/${e.shop_id}`} >Chi tiết Shop</Link>
                                         <button className='button'>Đặt ngay</button>
+                                        {console.log(e.shop_id)};
                                     </div>
                                 </div>
                             </div>

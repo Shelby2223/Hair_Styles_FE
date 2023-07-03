@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './Components/Header';
 import HomePage from './Components/HomePage';
 import ShopDetailPage from './Components/ShopDetailPage';
@@ -16,42 +16,21 @@ import ForgotPassword from './Components/ForgotPassword';
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/login" element={<LoginPageWithoutHeaderFooter />} />
-        <Route path="/register" element={<RegisterPageWithoutHeaderFooter />} />
-        <Route path="/" element={<DefaultLayout />} />
-      </Routes>
-    </Router>
-  );
-}
-
-function DefaultLayout() {
-  return (
-    <>
       <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/ShopDetail" element={<ShopDetailPage />} />
+        <Route path="/ShopDetailPage/:shop_id" element={<ShopDetailPage />} />
         <Route path="/Search" element={<Search />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/ShopAdmin" element={<ShopAdminPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/History" element={<HistoryPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
       </Routes>
       <Footer />
-    </>
-  );
-}
-
-function LoginPageWithoutHeaderFooter() {
-  return (
-    <LoginPage />
-  );
-}
-
-function RegisterPageWithoutHeaderFooter() {
-  return (
-    <RegisterPage />
+    </Router>
   );
 }
 
