@@ -35,7 +35,6 @@
 // }
 
 // export default App;
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Components/Header';
@@ -62,7 +61,7 @@ function App() {
         <Route path="/login" element={<LoginPageWithoutHeaderFooter />} />
         <Route path="/register" element={<RegisterPageWithoutHeaderFooter />} />
         <Route path="/" element={<DefaultLayout />} />
-        <Route path="/Admin" element={<DefaultAdminLayout />} />
+        <Route path="/Admin" element={<DefaultAdminLayout/>} />
 
       </Routes>
     </Router>
@@ -99,22 +98,22 @@ function RegisterPageWithoutHeaderFooter() {
     <RegisterPage />
 
 
-  );
+);
 }
-function DefaultAdminLayout() {
-  return (
-    <>
+function DefaultAdminLayout(){
+  return(
+  <>
 
-      <AdminHeader />
-      <Sidenav />
-      <Routes>
-        <Route path="/Admin/BarberShop" element={<BarberShop />} />
-        <Route path="/Income" element={<Income />} />
+  <AdminHeader/>
+  <Sidenav/>
+    <Routes>
+    <Route path="/Admin/BarberShop" element={<BarberShop />} />
+     <Route path="/Income" element={<Income />} />
 
-      </Routes>
+    </Routes>
 
-    </>
-  )
+</>
+)
 }
 
 export default App;
