@@ -95,7 +95,6 @@
         transform: translateX(-100%);
     }
 }
-
 @keyframes slide-in-right {
     0% {
         opacity: 0;
@@ -165,7 +164,7 @@
 
 .register-input-box input::-webkit-inner-spin-button,
 .register-input-box input::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+  -webkit-appearance: none;
 }
 
 .register-input-box .register-icon {
@@ -194,8 +193,7 @@
 .register-login-register p a:hover {
     text-decoration: underline;
 }
-
-.button-backandregister {
+.button-backandregister{
     display: flex;
     justify-content: space-between;
 }
@@ -212,7 +210,6 @@
     color: #fff;
     font-weight: 500;
 }
-
 .register-btnb {
     width: 30%;
     height: 45px;
@@ -225,7 +222,6 @@
     color: #fff;
     font-weight: 500;
 }
-
 .register-btnv {
     width: 100%;
     height: 45px;
@@ -252,7 +248,7 @@
     max-width: 100%;
 }
 
-.error-message {
+.error-message{
     color: #7f0000;
     font-weight: 500;
 
