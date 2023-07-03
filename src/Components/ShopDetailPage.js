@@ -3,13 +3,13 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const ShopDetailPage = () => {
-  const { id } = useParams();
+  const { shop_id } = useParams();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`https://63aa9df8fdc006ba604715fd.mockapi.io/show/${id}`);
+        const response = await axios.get(`http://127.0.0.1:8000/api/shops/${shop_id}`);
         setProduct(response.data);
       } catch (error) {
         console.log(error);
@@ -17,7 +17,7 @@ const ShopDetailPage = () => {
     };
 
     fetchProduct();
-  }, [id]);
+  }, [shop_id]);
 
   if (!product) {
     return <div>Loading...</div>;
