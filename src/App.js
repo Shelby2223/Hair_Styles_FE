@@ -26,7 +26,7 @@ function App() {
     // localStorage.removeItem('setHeaderAndFooterHomePage');
     // localStorage.removeItem('setHeaderAndFooterAdmin');
 
-
+  const abc =localStorage.getItem('setHeaderAndFooterAdmin');
 
 
   return (
