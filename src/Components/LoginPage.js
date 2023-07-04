@@ -3,7 +3,7 @@ import axios from 'axios';
 
 function LoginPage() {
     const [isPasswordVisible, setPasswordVisible] = useState(false); // Trạng thái kiểm tra xem password đang hiển thị hay ẩn
-
+    const [admin, setadmin] = useState('')
 
     // Chuyển đổi trạng thái hiển thị password
     const togglePasswordVisibility = () => {
@@ -29,24 +29,23 @@ function LoginPage() {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/login', user);
             console.log(response.data);
-            if (response.data.message === true) {
-                // Lấy thông tin người dùng từ API
-                const getUserResponse = await axios.get('http://127.0.0.1:8000/api/users');
-                const users = getUserResponse.data;
-
-                // Tìm người dùng dựa trên user_email nhập vào
-                const foundUser = users.find((u) => u.user_email === user.input_email); //u.user_email là từ api, user.user_email là từ input
-
-                if (foundUser) {
-                    const userID = foundUser.user_id;
-                    localStorage.setItem('userID', userID);
-                    console.log('userID đã lưu:', userID);
-                    alert('Login Successful \nWelcome to BarberShop! ');
-                    window.location.href = '/';
-                } else {
-                    console.log('Không tìm thấy người dùng');
-                }
-            } else{
+            if (response.data.user === true) {
+                const userID = response.data.id_user;
+                localStorage.setItem('userID', userID);
+                localStorage.setItem('setHeaderAndFooterHomePage', 1);
+                localStorage.setItem('setHeaderAndFooterAdmin', 0);
+                console.log('userID đã lưu:', userID);
+                alert('Login Successful \nWelcome to BarberShop! ');
+                window.location.href = '/';
+            } else if (response.data.admin === true) {
+                const userID = response.data.id_user;
+                localStorage.setItem('userID', userID);
+                localStorage.setItem('is_admin', 1);
+                localStorage.setItem('setHeaderAndFooterHomePage', 0);
+                localStorage.setItem('setHeaderAndFooterAdmin', 1);
+                alert('Login Successful \nWelcome my boss! ');
+                window.location.href = '/BarberShop';
+            } else if (response.data.user === false ) {
                 alert('Đăng nhập thất bại');
                 console.log(response.data.abc);
             }
@@ -54,12 +53,16 @@ function LoginPage() {
             console.error(error);
         }
     };
+    const hiddenHAF = () => {
+        localStorage.setItem('setHeaderAndFooterHomePage', 1);
+        window.location.href = '/';
+    }
 
     return (
         <>
             <div className='container'>
                 <div className="login-wrapper">
-                    <span className="icon-close" onClick={() => window.location.href = '/'}>
+                    <span className="icon-close" onClick={hiddenHAF}>
                         <ion-icon name="close"></ion-icon>
                     </span>
                     <div className="login-form-image">

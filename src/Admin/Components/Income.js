@@ -2,7 +2,7 @@ import '../css/material-dashboard.css';
 import '../css/nucleo-icons.css';
 import '../css/nucleo-svg.css';
 import React, { useState, useEffect } from 'react';
-import { format ,parse} from 'date-fns';
+import { format, parse } from 'date-fns';
 
 import Modal from 'react-modal';
 
@@ -11,29 +11,29 @@ import Modal from 'react-modal';
 
 const Income = () => {
 
-    const [payments, setPayments] = useState([]);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedPayment, setSelectedPayment] = useState(null);
-    const [selectedMonth, setSelectedMonth] = useState('');
-    const [selectedYear, setSelectedYear] = useState('');
-    const [selectedDay, setSelectedDay] = useState('');
+  const [payments, setPayments] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPayment, setSelectedPayment] = useState(null);
+  const [selectedMonth, setSelectedMonth] = useState('');
+  const [selectedYear, setSelectedYear] = useState('');
+  const [selectedDay, setSelectedDay] = useState('');
 
-    useEffect(() => {
-      fetch('http://127.0.0.1:8000/api/get-payments')
-        .then(response => response.json())
-        .then(data => setPayments(data));
-    }, []);
-    const [payment, setPayment] = useState([]);
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/get-payments')
+      .then(response => response.json())
+      .then(data => setPayments(data));
+  }, []);
+  const [payment, setPayment] = useState([]);
 
-    useEffect(() => {
-      fetch('http://127.0.0.1:8000/api/get-payment')
-        .then(response => response.json())
-        .then(data => setPayment(data));
-    }, []);
-    
-  
-    // Model
-    
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/get-payment')
+      .then(response => response.json())
+      .then(data => setPayment(data));
+  }, []);
+
+
+  // Model
+
 
 
   const openModal = (payment) => {
@@ -91,7 +91,7 @@ const Income = () => {
         paymentDate.getMonth() === selectedDate.getMonth() &&
         paymentDate.getFullYear() === selectedDate.getFullYear()
       );
-    } 
+    }
     else if (selectedMonth && selectedYear) {
       const selectedDate = parse(
         `${selectedYear}-${selectedMonth}-01`,
@@ -109,11 +109,11 @@ const Income = () => {
     }
     return true;
   });
-  
+
   const handleDayChange = (e) => {
     setSelectedDay(e.target.value);
   };
-  
+
 
   const handleMonthChange = (e) => {
     setSelectedMonth(e.target.value);
@@ -123,55 +123,55 @@ const Income = () => {
     setSelectedYear(e.target.value);
   };
 
-  
+
   return (
     <div>
 
-    <div className="g-sidenav-show bg-gray-200">
-    <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
-    <div className="container-fluid py-4">
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="card h-100" >
-            <div className="card-header pb-0">
-              <h6>Thống kê thu nhập của BarBerShop</h6>
-           
-            </div>
-            <div className="card-body p-3">
-            <table id='table'>
-        <thead>
-          <tr>
-           
-            <th>Shop Name</th>
-            <th>Shop Image</th>
-            <th>Payment Amount</th>
-            <th> Action</th>
-        
+      <div className="g-sidenav-show bg-gray-200">
+        <main className="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+          <div className="container-fluid py-4">
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="card h-100" >
+                  <div className="card-header pb-0">
+                    <h6>Thống kê thu nhập của BarBerShop</h6>
 
-          </tr>
-        </thead>
-        <tbody>
-          {payment.map(payment => (
-            <tr key={payment.payment_id}>
-              <td>{payment.shop_name}</td>
-              <td>{payment.shop_image}</td>      
-              <td>{payment.total_amount}</td>
-              <button onClick={() => openModal(payment)}>Detail</button>
-            
+                  </div>
+                  <div className="card-body p-3">
+                    <table id='table'>
+                      <thead>
+                        <tr>
 
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                          <th>Shop Name</th>
+                          <th>Shop Image</th>
+                          <th>Payment Amount</th>
+                          <th> Action</th>
 
 
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {payment.map(payment => (
+                          <tr key={payment.payment_id}>
+                            <td>{payment.shop_name}</td>
+                            <td>{payment.shop_image}</td>
+                            <td>{payment.total_amount}</td>
+                            <button onClick={() => openModal(payment)}>Detail</button>
+
+
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
 
 
 
 
 
-        {/* chi tiết hóa đơn của BarBerShop */}
-        {/* <table id='table'>
+
+
+                    {/* chi tiết hóa đơn của BarBerShop */}
+                    {/* <table id='table'>
         <thead>
           <tr>
            
@@ -198,98 +198,98 @@ const Income = () => {
         </tbody>
       </table> */}
 
-            </div>
-          </div>
-        </div>
-      </div>
-      <Modal
-      style={{
-        content: {
-          marginLeft: '50%',
-         
-          transform: 'translateX(-38%)',
-          width:"50%",
-        },
-      }}
-        isOpen={isModalOpen}
-        onRequestClose={closeModal}
-        contentLabel="Payment Detail Modal"
-      >
-        {selectedPayment && (
-         
-      <div className="container-fluid py-4">
-      <div className="row">
-        <div className="col-lg-12">
-          <div className="cardBaber h-100" style={{ width:"100%",marginLeft:"0% " }}>
-         
-            <div className="card-header pb-0" >
-              <h6>Thống kê thu nhập của {selectedPayment.shop_name} </h6>
-           
-            </div>
-            <div>
-            <label htmlFor="monthSelect">Ngầy:</label>
-                <select id="monthSelect" value={selectedDay} onChange={handleDayChange}>
-                  <option value="">Tất cả</option>
-                  <option value="1">mùng 1</option>
-                  <option value="6">mùng 6</option>
-
-                  {/* Thêm các option cho các tháng khác */}
-                </select>
-                <label htmlFor="monthSelect">Tháng:</label>
-                <select id="monthSelect" value={selectedMonth} onChange={handleMonthChange}>
-                  <option value="">Tất cả</option>
-                  <option value="6">Tháng 6</option>
-                  {/* Thêm các option cho các tháng khác */}
-                </select>
-                <label htmlFor="yearSelect">Năm:</label>
-                <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
-                  <option value="">Tất cả</option>
-                  <option value="2023">2023</option>
-                  {/* Thêm các option cho các năm khác */}
-                </select>
+                  </div>
+                </div>
               </div>
-                    
-         <table id='table' >
-         <thead>
-           <tr>
-             <th>User Name</th>
-             <th>Payment Amount</th>
-             <th>Payment Date</th>
- 
-           </tr>
-         </thead>
-         <tbody>
-         {filteredPayments.map((payment) => (
-             <tr key={payment.payment_id}>
-    
-           
-     
-               <td>{payment.user_name}</td>
-               <td>{payment.payment_amount}</td>
-               <td>{format(new Date(payment.created_at), 'dd/MM/yyyy HH:mm')}</td>
- 
-             </tr>
-           ))}
-         </tbody>
-       </table>
+            </div>
+            <Modal
+              style={{
+                content: {
+                  marginLeft: '50%',
 
-            <button className="modal-close-button" onClick={closeModal}>Close</button>
+                  transform: 'translateX(-38%)',
+                  width: "50%",
+                },
+              }}
+              isOpen={isModalOpen}
+              onRequestClose={closeModal}
+              contentLabel="Payment Detail Modal"
+            >
+              {selectedPayment && (
+
+                <div className="container-fluid py-4">
+                  <div className="row">
+                    <div className="col-lg-12">
+                      <div className="cardBaber h-100" style={{ width: "100%", marginLeft: "0% " }}>
+
+                        <div className="card-header pb-0" >
+                          <h6>Thống kê thu nhập của {selectedPayment.shop_name} </h6>
+
+                        </div>
+                        <div>
+                          <label htmlFor="monthSelect">Ngầy:</label>
+                          <select id="monthSelect" value={selectedDay} onChange={handleDayChange}>
+                            <option value="">Tất cả</option>
+                            <option value="1">mùng 1</option>
+                            <option value="6">mùng 6</option>
+
+                            {/* Thêm các option cho các tháng khác */}
+                          </select>
+                          <label htmlFor="monthSelect">Tháng:</label>
+                          <select id="monthSelect" value={selectedMonth} onChange={handleMonthChange}>
+                            <option value="">Tất cả</option>
+                            <option value="6">Tháng 6</option>
+                            {/* Thêm các option cho các tháng khác */}
+                          </select>
+                          <label htmlFor="yearSelect">Năm:</label>
+                          <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
+                            <option value="">Tất cả</option>
+                            <option value="2023">2023</option>
+                            {/* Thêm các option cho các năm khác */}
+                          </select>
+                        </div>
+
+                        <table id='table' >
+                          <thead>
+                            <tr>
+                              <th>User Name</th>
+                              <th>Payment Amount</th>
+                              <th>Payment Date</th>
+
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {filteredPayments.map((payment) => (
+                              <tr key={payment.payment_id}>
+
+
+
+                                <td>{payment.user_name}</td>
+                                <td>{payment.payment_amount}</td>
+                                <td>{format(new Date(payment.created_at), 'dd/MM/yyyy HH:mm')}</td>
+
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+
+                        <button className="modal-close-button" onClick={closeModal}>Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              )}
+
+            </Modal>
           </div>
-          </div>
-          </div>
-        </div>
-    
-        )}
-        
-      </Modal>
-    </div>
-    </main>
-    </div>
+        </main>
+      </div>
 
 
 
     </div>
-    
+
   );
 };
 

@@ -2,11 +2,11 @@
 
 
 
-const DashBoard = () =>{
+const DashBoard = () => {
     return (
-<div>
+        <div>
 
-</div>
+        </div>
 
     )
 }
