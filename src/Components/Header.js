@@ -4,6 +4,7 @@ import axios from 'axios';
 const Header = () => {
     const [userName, setUserName] = useState('');
     const [isSubMenuOpen, setSubMenuOpen] = useState(false);
+    const is_admin = localStorage.getItem('is_admin');
 
     useEffect(() => {
         const userID = localStorage.getItem('userID');
@@ -31,17 +32,31 @@ const Header = () => {
     // Log out 
     const handleLogout = () => {
         const confirmLogout = window.confirm('Are you sure you want to log out?');
+
         if (confirmLogout) {
+
             localStorage.removeItem('userID');
             // Thực hiện các xử lý khác sau khi logout (nếu cần)
+            localStorage.setItem('setHeaderAndFooterAdmin', 0);
+            localStorage.setItem('setHeaderAndFooterHomePage', 1);
+            localStorage.removeItem('is_admin');
+
             window.location.reload();
         }
     };
+    const hiddenHAF = () => {
+        localStorage.setItem('setHeaderAndFooterHomePage', 0);
+    }
+
+    const hiddenheaderandfooterHomepage = () => {
+        localStorage.setItem('setHeaderAndFooterAdmin', 1);
+        localStorage.setItem('setHeaderAndFooterHomePage', 0);
+    }
 
     console.log(userName, 'name');
     console.log(isSubMenuOpen, 'open');
 
-    
+
     return (
         <>
             <div id="preloader-active">
@@ -92,34 +107,40 @@ const Header = () => {
                                                             </li>
                                                         </ul>
                                                     </li> */}
-
                                                     {userName ? (
-
                                                         <>
-                                                            <li>
-                                                                <a href="contact.html">Past Haircut Bookings</a>
-                                                            </li>
+                                                            {/* Các phần tử cho người dùng đã đăng nhập */}
+                                                            {!is_admin && (
+                                                                <li>
+                                                                    <a href="contact.html">Past Haircut Bookings</a>
+                                                                </li>
+                                                            )}
                                                             <li>
                                                                 <a className='btn_user' href="#"> welcome: {userName}</a>
                                                                 <ul className='submenu'>
-                                                                    <li>
-                                                                        <a href="#">Profile</a>
-                                                                    </li>
+                                                                    {is_admin ? (
+                                                                        <li>
+                                                                            <a href="/BarberShop" onClick={hiddenheaderandfooterHomepage}>Admin</a>
+                                                                        </li>
+                                                                    ) : (
+                                                                        <li>
+                                                                            <a href="/profile">Profile</a>
+                                                                        </li>
+                                                                    )}
                                                                     <li>
                                                                         <a className='logout_user' onClick={handleLogout}>Log out</a>
                                                                     </li>
                                                                 </ul>
                                                             </li>
-
                                                         </>
                                                     ) : (
                                                         <>
+                                                            {/* Các phần tử cho người dùng chưa đăng nhập */}
                                                             <li>
-                                                                <a href="/Login">Đăng nhập</a>
+                                                                <a href="/Login" onClick={hiddenHAF}>Đăng nhập</a>
                                                             </li>
-
                                                             <li>
-                                                                <a href="/Register">Đăng Ký</a>
+                                                                <a href="/Register" onClick={hiddenHAF}>Đăng Ký</a>
                                                             </li>
                                                         </>
                                                     )}

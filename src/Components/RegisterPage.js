@@ -92,7 +92,13 @@ const RegisterPage = () => {
             alert('Đã xảy ra lỗi trong quá trình xác minh OTP. Vui lòng thử lại sau!');
         }
     };
-
+    const hiddenHAF = () => {
+        localStorage.setItem('setHeaderAndFooterHomePage', 1);
+        window.location.href = '/';
+    }
+    const hiddenHAFComfirm = () => {
+        localStorage.setItem('setHeaderAndFooterHomePage', 1);
+    }
 
 
     console.log(userData, 'aaa');
@@ -101,7 +107,7 @@ const RegisterPage = () => {
         <>
             <div className='container'>
                 <div className={`${isRegisterVisible ? 'register-wrapper2' : 'register-wrapper'}`}>
-                    <span className="icon-close" onClick={() => window.location.href = '/'}>
+                    <span className="icon-close" onClick={hiddenHAF}>
                         <ion-icon name="close"></ion-icon>
                     </span>
                     <div className="register-form-image">
@@ -197,7 +203,7 @@ const RegisterPage = () => {
                                         <div className='button-backandregister'>
                                             <button className="register-btnb" type="submit" onClick={hanldeBack}>Back</button>
 
-                                            <button className="register-btnr" type='submit'>Confirm</button>
+                                            <button className="register-btnr" onClick={hiddenHAFComfirm} type='submit'>Confirm</button>
                                         </div>
                                     </form>
                                 </>

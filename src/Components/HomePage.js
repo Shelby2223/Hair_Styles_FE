@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import ShowProducts from './ShowProducts';
 
 const HomePage = () => {
-
+    localStorage.setItem('setHeaderAndFooterHomePage', 1);
+    const userID = localStorage.getItem('userID');
+    // if (userID) {
+    //     localStorage.setItem('setHeaderAndFooterAdmin', 1);
+    // }
     return (
         <>
             <div className="slider-area position-relative fix">
@@ -44,9 +48,6 @@ const HomePage = () => {
                 </div>
             </div>
             <ShowProducts></ShowProducts>
-
-
-
         </>
     );
 }

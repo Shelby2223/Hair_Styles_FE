@@ -75,10 +75,14 @@ const ForgotPassword = () => {
             const response = await axios.post('http://127.0.0.1:8000/api/verify_new_password', usercomfirm)
             console.log(response.data);
             if (response.data.success == true) {
+                const userID = response.data.id_user;
+                localStorage.setItem('userID', userID);
+                localStorage.setItem('setHeaderAndFooterHomePage', 1);
+                localStorage.setItem('setHeaderAndFooterAdmin', 0);
                 // OTP xác minh thành công, hiển thị thông báo đăng ký thành công và chuyển hướng sang trang đăng nhập
-                alert('Reset password successfully \nPlease log in');
+                alert('Reset password successfully \nPlease change your password');
                 // Chuyển hướng sang trang đăng nhập
-                window.location.href = '/login';
+                window.location.href = '/changeyourpassword';
             } else {
                 // OTP xác minh không thành công, hiển thị thông báo lỗi
                 alert('Incorrect password \nPlease re-enter password again');

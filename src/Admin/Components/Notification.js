@@ -3,7 +3,7 @@
 
 
 
-const Notification = () =>{
+const Notification = () => {
     return (
         <div>
 

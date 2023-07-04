@@ -8,14 +8,16 @@ import '../css/nucleo-svg.css';
 import { Link } from 'react-router-dom';
 
 
-const Sidenav = () =>
-{
+const Sidenav = () => {
+  const hiddenheaderandfooteradmin = () =>{
+    localStorage.setItem('setHeaderAndFooterAdmin', 0);
+    localStorage.setItem('setHeaderAndFooterHomePage', 1);
+  }
+  return (
 
-    return(
 
-        
 
-      <div className="g-sidenav-show bg-gray-200">
+    <div className="g-sidenav-show bg-gray-200">
 
       <aside className="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark" id="sidenav-main">
         <div className="sidenav-header">
@@ -25,72 +27,77 @@ const Sidenav = () =>
             <span className="ms-1 font-weight-bold text-white">Material Dashboard 2</span>
           </a>
         </div>
-        
-      <hr className="horizontal light mt-0 mb-2" />
+
+        <hr className="horizontal light mt-0 mb-2" />
         <div className="collapse navbar-collapse w-auto" id="sidenav-collapse-main">
           <ul className="navbar-nav">
-          <li class="nav-item">
-            
-      <Link to="DashBoard">  <a class="nav-link text-white ">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">dashboard</i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-          </Link>  
-        </li>
+            <li class="nav-item">
+
+              <Link to="DashBoard">  <a class="nav-link text-white ">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">dashboard</i>
+                </div>
+                <span class="nav-link-text ms-1">Dashboard</span>
+              </a>
+              </Link>
+            </li>
             <li className="nav-item">
-            <Link to="BarberShop"> <a className="nav-link text-white active bg-gradient-primary" >
+              <Link to="BarberShop"> <a className="nav-link text-white active bg-gradient-primary" >
                 <div className="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              
+
                   <i class="material-icons opacity-10">store</i>
 
                 </div>
                 <span className="nav-link-text ms-1">BarberShop</span>
               </a>
-              </Link>  
+              </Link>
             </li>
             <li class="nav-item">
-            <Link to="Notification"> <a class="nav-link text-white " >
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
-            </div>
-            <span class="nav-link-text ms-1">Notifications</span>
-          </a>
-          </Link>
-        </li>
-        <li class="nav-item">
-        <Link to="Income"> <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-            <i className="material-icons opacity-10">receipt_long</i>
-           
-            </div>
-            <span class="nav-link-text ms-1">Income Statistics</span>
-          </a>
-         </Link>
-        </li>
-        <li class="nav-item">
-        <Link to="Client">  <a class="nav-link text-white " href="../pages/notifications.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">airline_seat_recline_normal</i>
-        
-           
-            </div>
-            <span class="nav-link-text ms-1">Client</span>
-          </a>
-          </Link>
-        </li>
-       
-          
-     
+              <Link to="Notification"> <a class="nav-link text-white " >
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">notifications</i>
+                </div>
+                <span class="nav-link-text ms-1">Notifications</span>
+              </a>
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link to="Income"> <a class="nav-link text-white " href="../pages/notifications.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i className="material-icons opacity-10">receipt_long</i>
+
+                </div>
+                <span class="nav-link-text ms-1">Income Statistics</span>
+              </a>
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link to="Client">  <a class="nav-link text-white " href="../pages/notifications.html">
+                <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="material-icons opacity-10">airline_seat_recline_normal</i>
+
+
+                </div>
+                <span class="nav-link-text ms-1">Client</span>
+              </a>
+              </Link>
+            </li>
+
+
+
             <li className="nav-item mt-3">
               <h6 className="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
+            </li>
+            <li class="nav-item">
+                <a href='/' onClick={hiddenheaderandfooteradmin} class="nav-link text-white">
+                  <span class="nav-link-text ms-1">HomePage</span>
+                </a>
             </li>
           </ul>
         </div>
       </aside>
-</div>
-    )
+    </div>
+  )
 
 }
 
