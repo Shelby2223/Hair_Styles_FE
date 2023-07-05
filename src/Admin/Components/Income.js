@@ -17,6 +17,7 @@ const Income = () => {
   const [selectedMonth, setSelectedMonth] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
   const [selectedDay, setSelectedDay] = useState('');
+  
 
   useEffect(() => {
     fetch('http://127.0.0.1:8000/api/get-payments')
@@ -227,27 +228,36 @@ const Income = () => {
 
                         </div>
                         <div>
-                          <label htmlFor="monthSelect">Ngầy:</label>
-                          <select id="monthSelect" value={selectedDay} onChange={handleDayChange}>
-                            <option value="">Tất cả</option>
-                            <option value="1">mùng 1</option>
-                            <option value="6">mùng 6</option>
+                   
+  <label htmlFor="daySelect">Ngày:</label>
+  <select id="daySelect" value={selectedDay} onChange={handleDayChange}>
+    <option value="">Tất cả</option>
+    {Array.from(Array(31), (_, index) => (
+      <option key={index + 1} value={index + 1}>
+        Mùng {index + 1}
+      </option>
+    ))}
+  </select>
+  <label htmlFor="monthSelect">Tháng:</label>
+  <select id="monthSelect" value={selectedMonth} onChange={handleMonthChange}>
+    <option value="">Tất cả</option>
+    {Array.from(Array(12), (_, index) => (
+      <option key={index + 1} value={index + 1}>
+        Tháng {index + 1}
+      </option>
+    ))}
+  </select>
+  <label htmlFor="yearSelect">Năm:</label>
+  <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
+    <option value="">Tất cả</option>
+    {Array.from(Array(10), (_, index) => (
+      <option key={index + 2023} value={index + 2023}>
+        {index + 2023}
+      </option>
+    ))}
+  </select>
+</div>
 
-                            {/* Thêm các option cho các tháng khác */}
-                          </select>
-                          <label htmlFor="monthSelect">Tháng:</label>
-                          <select id="monthSelect" value={selectedMonth} onChange={handleMonthChange}>
-                            <option value="">Tất cả</option>
-                            <option value="6">Tháng 6</option>
-                            {/* Thêm các option cho các tháng khác */}
-                          </select>
-                          <label htmlFor="yearSelect">Năm:</label>
-                          <select id="yearSelect" value={selectedYear} onChange={handleYearChange}>
-                            <option value="">Tất cả</option>
-                            <option value="2023">2023</option>
-                            {/* Thêm các option cho các năm khác */}
-                          </select>
-                        </div>
 
                         <table id='table' >
                           <thead>

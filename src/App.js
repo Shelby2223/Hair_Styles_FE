@@ -16,6 +16,8 @@ import BarberShop from './Admin/Components/BarberShop';
 import Income from './Admin/Components/Income';
 import Sidenav from './Admin/Components/sidenav';
 import HeaderAdmin from './Admin/Components/header';
+import Client from './Admin/Components/Client';
+import Notification from './Admin/Components/Notification';
 function App() {
   const HAFValue = localStorage.getItem('setHeaderAndFooterHomePage');
   const hideHeaderFooterHomePage = HAFValue === '0';
@@ -48,6 +50,8 @@ function App() {
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/BarberShop" element={<BarberShop />} />
           <Route path="/Income" element={<Income />} />
+          <Route path="/Client" element={<Client />} />
+          <Route path="/Notification" element={<Notification />} />
         </Routes>
         {!hideHeaderFooterHomePage && <Footer />}
 
