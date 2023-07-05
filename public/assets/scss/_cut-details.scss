@@ -1,57 +1,139 @@
-.cut-details{
-    .single-cut{
-        margin-right: 50px;
-        padding-right: 50px;
-        @media #{$xs}{
-            margin-right: 15px;
-            padding-right: 15px;
-        }
-        .cut-descriptions{
-            p{
-                color: #fff;
-                margin-bottom: 20px;
-                padding-bottom: 30px;
-                border-bottom: 1px solid #fff;
-            }
-            span{
-                color: #d19f68;
-                font-size: 12px;
-            }
-        }
+// Selector cho section.home
+.home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+
+  .content {
+    flex: 1;
+  }
+
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  span {
+    font-size: 16px;
+    color: #888;
+  }
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  .img {
+    img {
+      width: 100%;
+      max-width: 400px;
     }
-    /*  dots Style */
-    .dot-style{
-        .slick-dots{
-            text-align: center;
-            bottom: -105px;
-            position: relative;
-            @media #{$md}{
-                bottom: -50px;
-            }
-            @media #{$sm}{
-                bottom: -30px;
-            }
-            @media #{$xs}{
-                bottom: -40px;
-            }
-            li {
-                display: inline-block;
-                button {
-                    text-indent: -999999px;
-                    padding: 0px;
-                    height: 5px;
-                    width: 20px;
-                    margin: 0px 4px;
-                    border: 0;
-                    background: #bfbfbf;
-                    transition: .3s;
-                    cursor: pointer;
-                }
-            }
-            li.slick-active button {
-                background: #d19f68;
-                width: 35px;
-            }
-        }
+  }
+}
+
+// Selector cho div#top-cards
+#top-cards {
+  .card {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
     }
+
+    .card-img-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+
+      .card-titel {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      p {
+        margin-bottom: 5px;
+      }
+
+      strong {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      button {
+        padding: 10px 20px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// Selector cho div#product-cards
+#product-cards {
+  padding: 20px 0;
+
+  h1 {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+      max-width: 200px;
+    }
+
+    h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    .star {
+      color: #ffcc00;
+      margin-bottom: 10px;
+    }
+
+    h5 {
+      font-size: 18px;
+      font-weight: bold;
+
+      strike {
+        margin-right: 5px;
+        color: #888;
+      }
+
+      span {
+        margin-left: 10px;
+        color: #000;
+      }
+    }
+  }
+}
+
+// Selector cho a#viewmorebtn
+#viewmorebtn {
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  margin-top: 20px;
+  color: #000;
+  text-decoration: none;
 }
