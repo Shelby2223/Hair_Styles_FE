@@ -113,6 +113,33 @@ const Header = () => {
                                                             {!is_admin && (
                                                                 <li>
                                                                     <a href="contact.html">Past Haircut Bookings</a>
+                                                                    <ul className='submenu_user'>
+                                                                        <li>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456......</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456......</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                            </a>
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456......</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                            </a>
+                                                                        </li>
+
+                                                                    </ul>
                                                                 </li>
                                                             )}
                                                             <li>
