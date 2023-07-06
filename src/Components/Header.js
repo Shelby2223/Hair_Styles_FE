@@ -91,7 +91,7 @@ const Header = () => {
                                             <nav>
                                                 <ul id="navigation">
                                                     <li className="active">
-                                                        <a href="index.html">Home</a>
+                                                        <a href="/HomePage">Home</a>
                                                     </li>
                                                     {/* <li>
                                                         <a href="blog.html">Blog</a>
