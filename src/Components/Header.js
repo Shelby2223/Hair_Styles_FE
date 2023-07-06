@@ -59,7 +59,7 @@ const Header = () => {
 
     return (
         <>
-            <div id="preloader-active">
+            {/* <div id="preloader-active">
                 <div className="preloader d-flex align-items-center justify-content-center">
                     <div className="preloader-inner position-relative">
                         <div className="preloader-circle" />
@@ -68,7 +68,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <header>
                 {/*? Header Start */}
@@ -80,7 +80,7 @@ const Header = () => {
                                 <div className="col-xl-2 col-lg-2 col-md-1">
                                     <div className="logo">
                                         <a href="index.html">
-                                            <img src="assets/img/logo/logo.png" alt="" />
+                                            <img src="./showcssandimage/assets/img/logo/logo.png" alt="" />
                                         </a>
                                     </div>
                                 </div>
