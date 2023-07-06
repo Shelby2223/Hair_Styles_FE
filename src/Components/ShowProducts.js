@@ -26,7 +26,7 @@ const ShowProducts = () => {
               
                 <br /><br />
                 
-                <div className="row">
+                <div className="row" style={{marginLeft:"30px",marginRight:'30px'}}>
                     {searchResults.map((e) => (
                         <div className="col-md-4" key={e.shop_id}>
                             <div className="card">
