@@ -60,7 +60,7 @@ function LoginPage() {
 
     return (
         <>
-            <div className='container'>
+            <div className='container_login'>
                 <div className="login-wrapper">
                     <span className="icon-close" onClick={hiddenHAF}>
                         <ion-icon name="close"></ion-icon>
