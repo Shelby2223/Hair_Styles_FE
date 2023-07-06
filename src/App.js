@@ -12,14 +12,15 @@ import HistoryPage from './Components/HistoryPage';
 import Footer from './Components/Footer';
 import Search from './Components/Search';
 import ForgotPassword from './Components/ForgotPassword';
-import BarberShop from './Admin/Components/BarberShop';
 import Income from './Admin/Components/Income';
 import Sidenav from './Admin/Components/sidenav';
 import HeaderAdmin from './Admin/Components/header';
 import Client from './Admin/Components/Client';
 import Notification from './Admin/Components/Notification';
 import UpdateProfile from './Components/UpdateProfile';
-import RegisterForm from './Components/BarBerShop';
+import BarberShop from './Admin/Components/BarberShop';
+import RegisterBarbershopForm from './Components/BarBerShop';
+
 function App() {
   const HAFValue = localStorage.getItem('setHeaderAndFooterHomePage');
   const hideHeaderFooterHomePage = HAFValue === '0';
@@ -45,7 +46,6 @@ function App() {
           <Route path="/ShopDetailPage/:shop_id" element={<ShopDetailPage />} />
           <Route path="/Search" element={<Search />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/RegisterForm" element={< RegisterForm/>} />
           <Route path="/update-pages/:id" element={<UpdateProfile />} />
           <Route path="/ShopAdmin" element={<ShopAdminPage />} />
           <Route path="/contact" element={<ContactPage />} />
@@ -57,6 +57,8 @@ function App() {
           <Route path="/Income" element={<Income />} />
           <Route path="/Client" element={<Client />} />
           <Route path="/Notification" element={<Notification />} />
+          <Route path="/RegisterFrom" element={<RegisterBarbershopForm />} />
+
         </Routes>
         {!hideHeaderFooterHomePage && <Footer />}
 
