@@ -43,7 +43,7 @@ function App() {
           <Route path="/ShopDetailPage/:shop_id" element={<ShopDetailPage />} />
           <Route path="/Search" element={<Search />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="//update-pages/:id" element={<UpdateProfile />} />
+          <Route path="/update-pages/:id" element={<UpdateProfile />} />
           <Route path="/ShopAdmin" element={<ShopAdminPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/History" element={<HistoryPage />} />

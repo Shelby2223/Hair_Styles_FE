@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import './history.css';
@@ -43,7 +43,7 @@ const ProfilePage = () => {
   return (
     <section style={{ backgroundColor: "#eee" }}>
       <div className="container py-5">
-        <div className="row">
+        {/* <div className="row">
           <div className="col">
             <nav
               aria-label="breadcrumb"
@@ -62,7 +62,7 @@ const ProfilePage = () => {
               </ol>
             </nav>
           </div>
-        </div>
+        </div> */}
         <div className="row">
           <div className="col-lg-4">
             <div className="card mb-4">
@@ -82,14 +82,14 @@ const ProfilePage = () => {
                     Edit
                   </Link>
                 </div>
-                <div className="d-flex justify-content-center mb-2">
+                {/* <div className="d-flex justify-content-center mb-2">
                   <Link
                     to={`/Paymomo/${users.user_id}`}
                     className="btn btn-primary"
                   >
                     Thanh Toán
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -134,7 +134,7 @@ const ProfilePage = () => {
                 </div>
               </div>
             </div>
-
+{/* 
             <div className="col-lg-12">
               <div className="wrapper rounded">
                 <nav className="navbar navbar-expand-lg  d-lg-flex align-items-lg-start">
@@ -201,39 +201,8 @@ const ProfilePage = () => {
                     </tbody>
                   </table>
                 </div>
-                {/* <div className="d-flex justify-content-between align-items-center results">
-                      {" "}
-                      <span className="pl-md-3">
-                        Showing<b className="text-white"> 1-7 0f 200 </b>{" "}
-                        trasactions
-                      </span>
-                      <div className="pt-3">
-                        <nav aria-label="Page navigation example">
-                          <ul className="pagination">
-                            <li className="page-item disabled">
-                              {" "}
-                              <a
-                                className="page-link"
-                                href="#"
-                                aria-label="Previous"
-                              >
-                                {" "}
-                                <span aria-hidden="true">&lt;</span>{" "}
-                              </a>{" "}
-                            </li>
-                            <li className="page-item">
-                              {" "}
-                              <a className="page-link" href="#" aria-label="Next">
-                                {" "}
-                                <span aria-hidden="true">&gt;</span>{" "}
-                              </a>{" "}
-                            </li>
-                          </ul>
-                        </nav>
-                      </div>
-                    </div> */}
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
