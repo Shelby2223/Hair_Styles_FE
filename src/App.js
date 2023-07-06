@@ -11,24 +11,54 @@ import ContactPage from './Components/ContactPage';
 import HistoryPage from './Components/HistoryPage';
 import Footer from './Components/Footer';
 import Search from './Components/Search';
-
+import ForgotPassword from './Components/ForgotPassword';
+import BarberShop from './Admin/Components/BarberShop';
+import Income from './Admin/Components/Income';
+import Sidenav from './Admin/Components/sidenav';
+import HeaderAdmin from './Admin/Components/header';
+import Client from './Admin/Components/Client';
+import Notification from './Admin/Components/Notification';
+import UpdateProfile from './Components/UpdateProfile';
 function App() {
+  const HAFValue = localStorage.getItem('setHeaderAndFooterHomePage');
+  const hideHeaderFooterHomePage = HAFValue === '0';
+
+  const HAFValue1 = localStorage.getItem('setHeaderAndFooterAdmin');
+  const hideHeaderFooterAdmin = HAFValue1 === '1';
+
+    // localStorage.removeItem('setHeaderAndFooterHomePage');
+    // localStorage.removeItem('setHeaderAndFooterAdmin');
+
+  const abc =localStorage.getItem('setHeaderAndFooterAdmin');
+
+
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/ShopDetailPage/:shop_id" element={<ShopDetailPage />} />
-        <Route path="/Search" element={<Search />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/ShopAdmin" element={<ShopAdminPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-        <Route path="/History" element={<HistoryPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div>
+      <Router>
+        {!hideHeaderFooterHomePage && <Header />}
+        {hideHeaderFooterAdmin && <Sidenav/>}
+        {hideHeaderFooterAdmin && <HeaderAdmin/>}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/ShopDetailPage/:shop_id" element={<ShopDetailPage />} />
+          <Route path="/Search" element={<Search />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/update-pages/:id" element={<UpdateProfile />} />
+          <Route path="/ShopAdmin" element={<ShopAdminPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/History" element={<HistoryPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
+          <Route path="/BarberShop" element={<BarberShop />} />
+          <Route path="/Income" element={<Income />} />
+          <Route path="/Client" element={<Client />} />
+          <Route path="/Notification" element={<Notification />} />
+        </Routes>
+        {!hideHeaderFooterHomePage && <Footer />}
+
+      </Router>
+    </div>
   );
 }
 
