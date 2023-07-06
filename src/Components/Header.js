@@ -114,7 +114,7 @@ const Header = () => {
                                                                 <li>
                                                                     <a href="contact.html">Past Haircut Bookings</a>
                                                                     <ul className='submenu_user'>
-                                                                        <li>
+                                                                        <li className='li_menu'>
                                                                             <a href='#'>
                                                                                 <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
                                                                                 <h4 className="menuService_invoice">Mã hóa đơn: 987456......</h4>
@@ -122,7 +122,7 @@ const Header = () => {
                                                                                 <h4 className="menuService_phone">0978 736 207</h4>
                                                                             </a>
                                                                         </li>
-                                                                        <li>
+                                                                        <li className='li_menu'>
                                                                             <a href='#'>
                                                                                 <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
                                                                                 <h4 className="menuService_invoice">Mã hóa đơn: 987456......</h4>
@@ -130,7 +130,7 @@ const Header = () => {
                                                                                 <h4 className="menuService_phone">0978 736 207</h4>
                                                                             </a>
                                                                         </li>
-                                                                        <li>
+                                                                        <li className='li_menu'>
                                                                             <a href='#'>
                                                                                 <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
                                                                                 <h4 className="menuService_invoice">Mã hóa đơn: 987456......</h4>
@@ -150,9 +150,14 @@ const Header = () => {
                                                                             <a href="/BarberShop" onClick={hiddenheaderandfooterHomepage}>Admin</a>
                                                                         </li>
                                                                     ) : (
+                                                                        <>
                                                                         <li>
                                                                             <a href="/profile">Profile</a>
                                                                         </li>
+                                                                        <li>
+                                                                            <a href="/RegisterFrom">BarBerShop</a>
+                                                                        </li>
+                                                                        </>
                                                                     )}
                                                                     <li>
                                                                         <a className='logout_user' onClick={handleLogout}>Log out</a>
