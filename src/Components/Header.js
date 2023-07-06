@@ -80,7 +80,7 @@ const Header = () => {
                                 <div className="col-xl-2 col-lg-2 col-md-1">
                                     <div className="logo">
                                         <a href="index.html">
-                                            <img src="./showcssandimage/assets/img/logo/logo.png" alt="" />
+                                            <img src="assets/img/logo/logo.png" alt="" />
                                         </a>
                                     </div>
                                 </div>

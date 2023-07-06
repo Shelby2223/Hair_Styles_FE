@@ -39,7 +39,7 @@ function App() {
         {hideHeaderFooterAdmin && <Sidenav/>}
         {hideHeaderFooterAdmin && <HeaderAdmin/>}
         <Routes>
-          {/* <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/ShopDetailPage/:shop_id" element={<ShopDetailPage />} />
           <Route path="/Search" element={<Search />} />
           <Route path="/profile" element={<ProfilePage />} />
@@ -53,7 +53,7 @@ function App() {
           <Route path="/BarberShop" element={<BarberShop />} />
           <Route path="/Income" element={<Income />} />
           <Route path="/Client" element={<Client />} />
-          <Route path="/Notification" element={<Notification />} /> */}
+          <Route path="/Notification" element={<Notification />} />
         </Routes>
         {!hideHeaderFooterHomePage && <Footer />}
 

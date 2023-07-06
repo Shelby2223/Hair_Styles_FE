@@ -2722,11 +2722,12 @@ hr {
 }
 
 .header-transparent {
-    position: absolute;
+    /* position: relative; */
     top: 0;
     right: 0;
     left: 0;
-    z-index: 9
+    /* z-index: 9 */
+    background-color: #000;
 }
 
 .header-sticky.sticky-bar {
@@ -3165,13 +3166,7 @@ hr {
     background-repeat: no-repeat
 }
 
-.header-transparent {
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 9
-}
+
 
 .slider-area2 .hero-cap h2 {
     color: #fff;
