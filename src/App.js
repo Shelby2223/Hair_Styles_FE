@@ -19,6 +19,7 @@ import HeaderAdmin from './Admin/Components/header';
 import Client from './Admin/Components/Client';
 import Notification from './Admin/Components/Notification';
 import UpdateProfile from './Components/UpdateProfile';
+import RegisterForm from './Components/BarBerShop';
 function App() {
   const HAFValue = localStorage.getItem('setHeaderAndFooterHomePage');
   const hideHeaderFooterHomePage = HAFValue === '0';
@@ -39,10 +40,12 @@ function App() {
         {hideHeaderFooterAdmin && <Sidenav/>}
         {hideHeaderFooterAdmin && <HeaderAdmin/>}
         <Routes>
+       
           <Route path="/" element={<HomePage />} />
           <Route path="/ShopDetailPage/:shop_id" element={<ShopDetailPage />} />
           <Route path="/Search" element={<Search />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/RegisterForm" element={< RegisterForm/>} />
           <Route path="/update-pages/:id" element={<UpdateProfile />} />
           <Route path="/ShopAdmin" element={<ShopAdminPage />} />
           <Route path="/contact" element={<ContactPage />} />
