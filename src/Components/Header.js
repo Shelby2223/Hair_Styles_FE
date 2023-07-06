@@ -123,9 +123,14 @@ const Header = () => {
                                                                             <a href="/BarberShop" onClick={hiddenheaderandfooterHomepage}>Admin</a>
                                                                         </li>
                                                                     ) : (
+                                                                        <>
                                                                         <li>
                                                                             <a href="/profile">Profile</a>
                                                                         </li>
+                                                                        <li>
+                                                                            <a href="/RegisterForm">BarBerShop</a>
+                                                                        </li>
+                                                                        </>
                                                                     )}
                                                                     <li>
                                                                         <a className='logout_user' onClick={handleLogout}>Log out</a>
