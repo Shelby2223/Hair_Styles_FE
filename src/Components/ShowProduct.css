@@ -1,0 +1,15 @@
+  
+.img-shop {
+    width: 100px;
+    height: 250px;
+}
+  
+
+.showproduct {
+    padding: 0;
+    margin: 0;
+}
+
+.showproduct .row {
+    margin-left: 100px;
+}
