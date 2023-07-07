@@ -13,6 +13,7 @@ const ShopDetailPage = () => {
   const [stylists, setStylists] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
   useEffect(() => {
     const fetchData = async () => {
       try {

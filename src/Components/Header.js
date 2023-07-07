@@ -57,6 +57,31 @@ const Header = () => {
     console.log(isSubMenuOpen, 'open');
 
 
+    // lấy show history
+    const [shop_user, setShop] = useState([]);
+    const [payment_user, setPayment] = useState([]);
+
+    const userID = localStorage.getItem('userID');
+
+    useEffect(() => {
+
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://127.0.0.1:8000/api/get_history_user/${userID}`);
+                setShop(response.data.shop_data);
+                setPayment(response.data.payment);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+
+    console.log(shop_user);
+    console.log(payment_user);
+
     return (
         <>
             {/* <div id="preloader-active">
@@ -115,61 +140,18 @@ const Header = () => {
                                                                     <a href="contact.html">Past Haircut Bookings</a>
                                                                     <ul className='submenu_user'>
                                                                         <a className='alldetail' href='#'>Click to see all details</a>
-                                                                        <h2>All your barber appointments for today </h2>
-                                                                        <li className='li_menu'>
-                                                                            <a href='#'>
-                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
-                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
-                                                                                <h4 className="menuService_phone">0978 736 207</h4>
-                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
-                                                                            </a>
-                                                                        </li>
-                                                                        <div className='kechan'></div>
                                                                         <h2>All your previous barber appointments</h2>
-                                                                        <li className='li_menu'>
-                                                                            <a href='#'>
-                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
-                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
-                                                                                <h4 className="menuService_phone">0978 736 207</h4>
-                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
-                                                                            </a>
-                                                                        </li>
-                                                                        <div className='kechan'></div>
-                                                                        <li className='li_menu'>
-                                                                            <a href='#'>
-                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
-                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
-                                                                                <h4 className="menuService_phone">0978 736 207</h4>
-                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
-                                                                            </a>
-                                                                        </li>
-                                                                        <div className='kechan'></div><li className='li_menu'>
-                                                                            <a href='#'>
-                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
-                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
-                                                                                <h4 className="menuService_phone">0978 736 207</h4>
-                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
-                                                                            </a>
-                                                                        </li>
-                                                                        <div className='kechan'></div><li className='li_menu'>
-                                                                            <a href='#'>
-                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
-                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
-                                                                                <h4 className="menuService_phone">0978 736 207</h4>
-                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
-                                                                            </a>
-                                                                        </li>
-                                                                        <div className='kechan'></div><li className='li_menu'>
-                                                                            <a href='#'>
-                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
-                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
-                                                                                <h4 className="menuService_phone">0978 736 207</h4>
-                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
-                                                                            </a>
-                                                                        </li>
-                                                                        <div className='kechan'></div>
-
-
+                                                                        {shop_user && payment_user && (
+                                                                            <li className='li_menu'>
+                                                                                <a href='#'>
+                                                                                    <h3 className="menuService_shop_name">Shop: {shop_user.shop_name}</h3>
+                                                                                    <h4 className="menuService_invoice">Mã hóa đơn:{payment_user.billing_code}</h4>
+                                                                                    <h4 className="menuService_phone">{shop_user.shop_phone}</h4>
+                                                                                    <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                                </a>
+                                                                                <div className='kechan'></div>
+                                                                            </li>
+                                                                        )}
                                                                     </ul>
                                                                 </li>
                                                             )}
