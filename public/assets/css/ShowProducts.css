@@ -4,7 +4,7 @@
 .showproduct{
   margin: 30px 30px 30px 30px;
 }
-  
+
   .card {
     width: 100%;
     border: 1px solid rgba(209, 159, 104, 0.7);
@@ -25,6 +25,7 @@
     text-align: center;
   }
   
+
   .card-title {
     font-size: 18px;
     font-weight: bold;
