@@ -113,19 +113,82 @@ const Header = () => {
                                                             {!is_admin && (
                                                                 <li>
                                                                     <a href="contact.html">Past Haircut Bookings</a>
+                                                                    <ul className='submenu_user'>
+                                                                        <a className='alldetail' href='#'>Click to see all details</a>
+                                                                        <h2>All your barber appointments for today </h2>
+                                                                        <li className='li_menu'>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                            </a>
+                                                                        </li>
+                                                                        <div className='kechan'></div>
+                                                                        <h2>All your previous barber appointments</h2>
+                                                                        <li className='li_menu'>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                            </a>
+                                                                        </li>
+                                                                        <div className='kechan'></div>
+                                                                        <li className='li_menu'>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                            </a>
+                                                                        </li>
+                                                                        <div className='kechan'></div><li className='li_menu'>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                            </a>
+                                                                        </li>
+                                                                        <div className='kechan'></div><li className='li_menu'>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                            </a>
+                                                                        </li>
+                                                                        <div className='kechan'></div><li className='li_menu'>
+                                                                            <a href='#'>
+                                                                                <h3 className="menuService_shop_name">Shop 1: BJAIJDHAJDHAJDHADDA</h3>
+                                                                                <h4 className="menuService_invoice">Mã hóa đơn: 987456</h4>
+                                                                                <h4 className="menuService_phone">0978 736 207</h4>
+                                                                                <h4 className="menuService_address">101B lê Hữu Trác</h4>
+                                                                            </a>
+                                                                        </li>
+                                                                        <div className='kechan'></div>
+
+
+                                                                    </ul>
                                                                 </li>
                                                             )}
                                                             <li>
-                                                                <a className='btn_user' href="#"> welcome: {userName}</a>
+                                                                <a className='btn_user' href="#"> Hi: {userName}</a>
                                                                 <ul className='submenu'>
                                                                     {is_admin ? (
                                                                         <li>
                                                                             <a href="/BarberShop" onClick={hiddenheaderandfooterHomepage}>Admin</a>
                                                                         </li>
                                                                     ) : (
-                                                                        <li>
-                                                                            <a href="/profile">Profile</a>
-                                                                        </li>
+                                                                        <>
+                                                                            <li>
+                                                                                <a href="/profile">Profile</a>
+                                                                            </li>
+                                                                            <li>
+                                                                                <a href="/RegisterFrom">BarBerShop</a>
+                                                                            </li>
+                                                                        </>
                                                                     )}
                                                                     <li>
                                                                         <a className='logout_user' onClick={handleLogout}>Log out</a>

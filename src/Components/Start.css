@@ -1,0 +1,23 @@
+/* 
+  
+  a.fas.fa-star.s1 {
+    display: flex;
+  }
+  .star a {
+ 
+    font-size: 100px;
+    color: gold;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+.star p{
+    margin-top: 6px;
+    margin-left: 10px;
+}
+.fa-star:before {
+
+    color: gold;
+}
+
+ 
+   */

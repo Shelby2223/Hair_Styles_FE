@@ -12,7 +12,6 @@ import HistoryPage from './Components/HistoryPage';
 import Footer from './Components/Footer';
 import Search from './Components/Search';
 import ForgotPassword from './Components/ForgotPassword';
-import BarberShop from './Admin/Components/BarberShop';
 import Income from './Admin/Components/Income';
 import Sidenav from './Admin/Components/sidenav';
 import HeaderAdmin from './Admin/Components/header';
@@ -39,6 +38,7 @@ function App() {
         {hideHeaderFooterAdmin && <Sidenav/>}
         {hideHeaderFooterAdmin && <HeaderAdmin/>}
         <Routes>
+       
           <Route path="/" element={<HomePage />} />
           <Route path="/ShopDetailPage/:shop_id" element={<ShopDetailPage />} />
           <Route path="/Search" element={<Search />} />

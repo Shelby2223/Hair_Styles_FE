@@ -1,0 +1,177 @@
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #353b48;
+  } */
+
+.star a {
+    font-size: 4em;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.5s;
+    margin: 4px;
+}
+
+
+.rate:not(:checked)>label:before {
+    content: '★ ';
+}
+
+.rate>input:checked~label {
+    color: #ffc700;
+}
+
+.rate:not(:checked)>label:hover,
+.rate:not(:checked)>label:hover~label {
+    color: #deb217;
+}
+
+.rate>input:checked+label:hover,
+.rate>input:checked+label:hover~label,
+.rate>input:checked~label:hover,
+.rate>input:checked~label:hover~label,
+.rate>label:hover~input:checked~label {
+    color: #c59b08;
+}
+
+.container-wrapper {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+element.style {
+    background: #fff;
+}
+
+section {
+    padding: 20px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.rate {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.rate input[type="radio"] {
+    display: none;
+}
+
+.rate label {
+    color: #777;
+    font-size: 25px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.rate label:before {
+    content: "\f3e5";
+    font-family: "boxicons";
+    color: #ffc107;
+}
+
+.rate input[type="radio"]:checked~label:before {
+    color: #ff9800;
+}
+
+.comment {
+    margin-top: 20px;
+}
+
+.comment label,
+.comment textarea {
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    resize: vertical;
+    outline: none;
+ 
+}
+
+.comment label {
+    border: none;
+    font-size: 25px;
+}
+
+.comment textarea {
+    height: 100px;
+}
+
+.comment input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+}
+
+.comment input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.show_detail {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.name_user {
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+.date{
+    font-size: 10px;
+}
+.show_detail .rate {
+    margin-top: 10px;
+}
+
+.show_detail .rate label:before {
+    font-size: 25px;
+}
+
+.show_comment {
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+.show_detail .show_comment p {
+    font-size: 25px;
+    color: #555;
+}
+
+.round-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.round-image img {
+    
+    object-fit: cover;
+  }
+  
+ 
