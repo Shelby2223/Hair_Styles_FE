@@ -224,27 +224,43 @@
 
 /* show dữ liệu trong menu */
 .menuService_shop_name {
-    float: left;
+    font-size: 18px;
     margin-bottom: 10px;
-}
+    display: block;
+    /* Đặt phần tử h3 hiển thị dưới dạng block */
 
-.menuService_invoice {
-    float: left;
-    margin-right: 10px; /* Sử dụng margin-right để tạo khoảng cách với phần tử .menuService_phone */
-}
 
-.menuService_phone {
-    float: right; /* Sử dụng float: left để đảm bảo nằm cùng hàng với .menuService_invoice */
 }
 
 .menuService_invoice,
 .menuService_phone {
-    margin-bottom: 0; /* Đảm bảo không có khoảng cách dưới (bottom) */
+    display: inline-block;
+    /* Đặt phần tử h4 hiển thị dưới dạng inline-block */
+}
+
+.menuService_invoice {
+    font-size: 15px;
+    margin-right: 10px;
+    /* Sử dụng margin-right để tạo khoảng cách với phần tử .menuService_phone */
+}
+
+.menuService_phone {
+    float: right;
+    /* Sử dụng float: left để đảm bảo nằm cùng hàng với .menuService_invoice */
+    font-size: 15px;
+}
+
+
+
+.menuService_invoice,
+.menuService_phone {
+    margin-bottom: 0;
+    /* Đảm bảo không có khoảng cách dưới (bottom) */
 }
 
 
 .menuService_address {
-   
+
     clear: both;
 }
 
@@ -285,6 +301,7 @@
     text-transform: capitalize;
     margin: 0;
 }
+
 .submenu_user>a:hover {
     padding-left: 13px !important;
     color: #d19f68;
@@ -308,10 +325,10 @@
     position: relative;
     text-decoration: none;
 }
+
 .header-area .main-header .main-menu ul>h2 {
     padding: 6px 10px !important;
     font-size: 16px;
     text-transform: capitalize;
     margin: 0;
 }
-

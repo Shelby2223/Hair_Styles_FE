@@ -58,6 +58,7 @@ const Rating = () => {
       }
       return "white"; // Đổi màu thành màu trắng
     };
+    
   
   return (
     <div className="container-wrapper">
