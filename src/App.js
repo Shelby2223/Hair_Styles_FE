@@ -18,6 +18,8 @@ import HeaderAdmin from './Admin/Components/header';
 import Client from './Admin/Components/Client';
 import Notification from './Admin/Components/Notification';
 import UpdateProfile from './Components/UpdateProfile';
+import BarberShop from './Admin/Components/BarberShop';
+
 function App() {
   const HAFValue = localStorage.getItem('setHeaderAndFooterHomePage');
   const hideHeaderFooterHomePage = HAFValue === '0';

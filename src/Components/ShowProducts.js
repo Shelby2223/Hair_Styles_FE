@@ -239,17 +239,23 @@ const ShowProducts = () => {
         >
           {searchResults.map((e) => (
             <div className="col-md-4" key={e.shop_id}>
-              <div className="card">
+              <div className="" id="card-shop">
                 <img
                   src={`../assets/img/shops/${e.shop_image}`}
                   alt=""
                   className="card-img-top img-shop"
-                />
+                />{" "}
+                <br></br>
+                <br></br>
                 <div className="card-body">
                   <h4 className="card-title">{e.shop_name}</h4>
+                  <br></br>
                   <p className="card-text"> Phone: {e.shop_phone}</p>
                   <p className="card_price">{e.user}</p>
-                  <div className="function">
+                  <div
+                    className="function d-flex justify-content-center"
+                    id="btn-detail"
+                  >
                     <Link
                       className="button"
                       to={`/ShopDetailPage/${e.shop_id}`}
@@ -358,12 +364,12 @@ const ShowProducts = () => {
             <div>
               <p>Shop được chọn: {selectedShop.shop.shop_name}</p>
             </div>
-            <h4>Dịch vụ:</h4>
+            <h2>Dịch vụ:</h2>
             <div>
               {selectedShop && (
                 <>
                   <p>Tên dịch vụ: {selectedShop.service.service_name}</p>
-                  <p>Giá: {selectedShop.service.service_price}</p>
+                  <p>Giá: {selectedShop.service.service_price}VNĐ</p>
                   <p>Thời gian: {selectedTime}</p>
                 </>
               )}
@@ -371,7 +377,7 @@ const ShowProducts = () => {
             {selectedShop && selectedTime && (
               <div>
                 <h3>Stylist:</h3>
-                <select onChange={handleStylistSelection}>
+                <select id="stylistSelect" onChange={handleStylistSelection}>
                   <option value="">Chọn stylist</option>
                   {selectedShop.shop.stylists.map((stylist) => (
                     <option
@@ -387,7 +393,7 @@ const ShowProducts = () => {
             )}
           </>
         )}
-        <label htmlFor="dateInput">Ngày và giờ đặt lịch:</label>
+        <label htmlFor="dateInput" style={{fontSize:18}}>Ngày và giờ đặt lịch:</label>
         <input
           type="datetime-local"
           id="dateInput"
@@ -395,6 +401,7 @@ const ShowProducts = () => {
           required
           className="mt-3"
         />
+        <br></br>
         <br></br>
         <button onClick={handleConfirm} className="btn btn-primary">
           Xác nhận
