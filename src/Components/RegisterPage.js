@@ -105,7 +105,7 @@ const RegisterPage = () => {
 
     return (
         <>
-            <div className='container'>
+            <div className='register_container'>
                 <div className={`${isRegisterVisible ? 'register-wrapper2' : 'register-wrapper'}`}>
                     <span className="icon-close" onClick={hiddenHAF}>
                         <ion-icon name="close"></ion-icon>

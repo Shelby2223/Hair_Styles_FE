@@ -19,6 +19,7 @@ import HeaderAdmin from './Admin/Components/header';
 import Client from './Admin/Components/Client';
 import Notification from './Admin/Components/Notification';
 import UpdateProfile from './Components/UpdateProfile';
+import Rating from './Components/Rating'
 function App() {
   const HAFValue = localStorage.getItem('setHeaderAndFooterHomePage');
   const hideHeaderFooterHomePage = HAFValue === '0';
@@ -54,6 +55,8 @@ function App() {
           <Route path="/Income" element={<Income />} />
           <Route path="/Client" element={<Client />} />
           <Route path="/Notification" element={<Notification />} />
+          <Route path="/Rating" element={<Rating />} />
+          <Route path="/Rating/:shop_id" element={<Rating />} />
         </Routes>
         {!hideHeaderFooterHomePage && <Footer />}
 
