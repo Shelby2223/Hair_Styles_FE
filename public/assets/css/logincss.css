@@ -173,7 +173,7 @@
 
 .header-area .main-header .main-menu ul ul.submenu_user {
     position: absolute;
-    width: 300px;
+    width: 350px;
     background: rgba(43, 43, 43, 0.7);
     top: 80%;
     visibility: hidden;
@@ -229,24 +229,89 @@
 }
 
 .menuService_invoice {
+    float: left;
+    margin-right: 10px; /* Sử dụng margin-right để tạo khoảng cách với phần tử .menuService_phone */
+}
+
+.menuService_phone {
+    float: right; /* Sử dụng float: left để đảm bảo nằm cùng hàng với .menuService_invoice */
+}
+
+.menuService_invoice,
+.menuService_phone {
+    margin-bottom: 0; /* Đảm bảo không có khoảng cách dưới (bottom) */
+}
+
+
+.menuService_address {
+   
     clear: both;
 }
 
-.menuService_address {
-    float: right;
-    margin-left: 10px;
+
+.li_menu {
+    margin-bottom: 10px;
+    /* Thay đổi giá trị 10px thành khoảng cách mong muốn */
 }
 
-.menuService_phone {
-    float: left;
-    margin-right: 10px;
+.kechan {
+    border-bottom: 2px solid #d19f68;
+    /* Thay đổi màu và độ dày nếu cần */
+    margin: 0 auto;
+    width: 90%;
+    /* Thay đổi độ rộng của kẻ chân nếu cần */
 }
 
-.menuService_address,
-.menuService_phone {
-    margin-bottom: 0;
+.submenu_user a {
+    color: #d19f68;
+    font-weight: 300;
+    padding: 39px 25px;
+    display: block;
+    font-size: 16px;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    text-transform: capitalize;
+    position: relative;
+    font-family: "Open Sans", sans-serif;
+    position: relative;
+    text-decoration: none;
 }
 
-.li_menu{
-    margin-bottom: 10px; /* Thay đổi giá trị 10px thành khoảng cách mong muốn */
+.submenu_user>a {
+    padding: 6px 10px !important;
+    font-size: 16px;
+    text-transform: capitalize;
+    margin: 0;
 }
+.submenu_user>a:hover {
+    padding-left: 13px !important;
+    color: #d19f68;
+}
+
+/*  h2 */
+
+.header-area .main-header .main-menu ul h2 {
+    color: #d19f68;
+    font-weight: 300;
+    padding: 39px 25px;
+    display: block;
+    font-size: 16px;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+    text-transform: capitalize;
+    position: relative;
+    font-family: "Open Sans", sans-serif;
+    position: relative;
+    text-decoration: none;
+}
+.header-area .main-header .main-menu ul>h2 {
+    padding: 6px 10px !important;
+    font-size: 16px;
+    text-transform: capitalize;
+    margin: 0;
+}
+
