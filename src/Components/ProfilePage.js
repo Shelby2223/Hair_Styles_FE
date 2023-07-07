@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import './history.css';
@@ -42,7 +42,7 @@ const ProfilePage = () => {
 
   return (
     <section style={{ backgroundColor: "#eee" }}>
-      <div className="container py-5">
+      <div className=" py-5">
         {/* <div className="row">
           <div className="col">
             <nav
