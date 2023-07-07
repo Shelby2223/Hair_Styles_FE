@@ -2585,7 +2585,8 @@ hr {
     text-transform: capitalize;
     position: relative;
     font-family: "Open Sans", sans-serif;
-    position: relative
+    position: relative;
+    text-decoration: none;
 }
 
 
